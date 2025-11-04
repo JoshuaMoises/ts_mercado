@@ -4,7 +4,7 @@ import auth from '../../middleware/auth'
 
 const routerMercado: Router = express.Router()
 
-routerMercado.post('/mercado', mercadoController.createMercado)
+routerMercado.post('/login', mercadoController.createMercado)
 
 routerMercado.post('/auth', mercadoController.authMercado)
 

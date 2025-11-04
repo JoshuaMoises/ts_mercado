@@ -11,7 +11,7 @@ const create = async (product: Partial<productModelInterface>): Promise<productM
     }
 }
 
-const findBySku = async (sku: string, where: object): Promise<productModelInterface | null> => {
+const findBySku = async (sku: string, where: object = {}): Promise<productModelInterface | null> => {
     try {
        const product = await Product.findOne ({
         where: {
@@ -59,9 +59,14 @@ const update = async (login: Partial<productModelInterface>,id: number) => {
     }
 }
 
-const findAll = async ():Promise<productModelInterface[]> => {
+const findAll = async (where: object = {}):Promise<productModelInterface[]> => {
     try {
-        const products = await Product.findAll();
+        const products = await Product.findAll({
+            where: {
+                ...where
+            },
+            attributes: ['name']
+        });
         return products
     } catch (error: any) {
         throw new Error(error);

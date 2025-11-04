@@ -12,11 +12,11 @@ const Product = connection.define<productModelInterface> ('product', {
         allowNull: false,
     },
     quantity: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
     price: {
-        type: DataTypes.DECIMAL,
+        type: DataTypes.FLOAT,
         allowNull: false
     },
     loginId: {
